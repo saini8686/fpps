@@ -23,7 +23,7 @@ app.post("/webflow-form", async (req, res) => {
       **Phone**: ${formData.data["Phone"]}
       **Message**: ${formData.data["Message"]}`,
       status: "to do", // Adjust the status as per your ClickUp workspace
-      assignees: [123456],
+      assignees: [3475808],
       priority: 2,
       start_date: currentDate,
       due_date: currentDate,
@@ -45,7 +45,6 @@ app.post("/webflow-form", async (req, res) => {
       }
     );
 
-    console.log("Task created in ClickUp:", response.data);
     res
       .status(200)
       .send({ success: true, message: "Task created in ClickUp!" });
