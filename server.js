@@ -18,19 +18,20 @@ app.post("/webflow-form", async (req, res) => {
 
     // Map Webflow form fields to ClickUp task fields
     const taskData = {
-      name: `Form Submission: ${formData.data["Name"]}`, // Use the form's "Name" field
-      description: `**Email**: ${formData.data["Email"]}
-      **Phone**: ${formData.data["Phone"]}
-      **Message**: ${formData.data["Message"]}`,
+      name: `Form Submission: ${formData.data["name"]}`, // Use the form's "Name" field
+      description: `**Email**: ${formData.data["email"]}
+      **Phone**: ${formData.data["phone"]}
+      **Message**: ${formData.data["message"]}`,
       status: "to do", // Adjust the status as per your ClickUp workspace
       assignees: [123456],
       priority: 2,
+      start_date: currentDate,
       due_date: currentDate,
     };
 
     // ClickUp API details
-    const listId = '901604956254'; // Replace with your ClickUp List ID
-    const apiToken = 'pk_55289378_CMDSU7G0B4GOPHB83WVV92JOL73ELHDC'; // Replace with your ClickUp API token
+    const listId = "901604956254"; // Replace with your ClickUp List ID
+    const apiToken = "pk_55289378_CMDSU7G0B4GOPHB83WVV92JOL73ELHDC"; // Replace with your ClickUp API token
 
     // Send data to ClickUp
     const response = await axios.post(
