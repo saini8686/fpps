@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const axios = require("axios"); // For making API calls
 const bodyParser = require("body-parser");
@@ -13,7 +14,8 @@ app.post("/webflow-form", async (req, res) => {
   try {
     // Webflow form data
     const formData = req.body;
-    console.log(formData, "formData");
+    const currentDate = new Date().getTime();
+
     // Map Webflow form fields to ClickUp task fields
     const taskData = {
       name: `Form Submission: ${formData.data["Name"]}`, // Use the form's "Name" field
@@ -21,11 +23,14 @@ app.post("/webflow-form", async (req, res) => {
       **Phone**: ${formData.data["Phone"]}
       **Message**: ${formData.data["Message"]}`,
       status: "to do", // Adjust the status as per your ClickUp workspace
+      assignees: [123456],
+      priority: 2,
+      due_date: currentDate,
     };
 
     // ClickUp API details
-    const listId = "901604956254"; // Replace with your ClickUp List ID
-    const apiToken = "pk_55289378_CMDSU7G0B4GOPHB83WVV92JOL73ELHDC"; // Replace with your ClickUp API token
+    const listId = process.env.LIST_ID; // Replace with your ClickUp List ID
+    const apiToken = process.env.API_TOKEN; // Replace with your ClickUp API token
 
     // Send data to ClickUp
     const response = await axios.post(
