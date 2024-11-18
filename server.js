@@ -13,15 +13,13 @@ app.post("/webflow-form", async (req, res) => {
   try {
     // Webflow form data
     const formData = req.body;
-
+    console.log(formData, "formData");
     // Map Webflow form fields to ClickUp task fields
     const taskData = {
       name: `Form Submission: ${formData.data["Name"]}`, // Use the form's "Name" field
-      description: `
-                **Email**: ${formData.data["Email"]}
-                **Phone**: ${formData.data["Phone"]}
-                **Message**: ${formData.data["Message"]} 
-            `,
+      description: `**Email**: ${formData.data["Email"]}
+      **Phone**: ${formData.data["Phone"]}
+      **Message**: ${formData.data["Message"]}`,
       status: "to do", // Adjust the status as per your ClickUp workspace
     };
 
