@@ -30,8 +30,8 @@ app.post("/webflow-form", async (req, res) => {
     };
 
     // ClickUp API details
-    const listId = process.env.LIST_ID; // Replace with your ClickUp List ID
-    const apiToken = process.env.API_TOKEN; // Replace with your ClickUp API token
+    const listId = '901604956254'; // Replace with your ClickUp List ID
+    const apiToken = 'pk_55289378_CMDSU7G0B4GOPHB83WVV92JOL73ELHDC'; // Replace with your ClickUp API token
 
     // Send data to ClickUp
     const response = await axios.post(
