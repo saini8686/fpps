@@ -23,7 +23,7 @@ app.post("/webflow-form", async (req, res) => {
       **Phone**: ${formData.data["Phone"]}
       **Message**: ${formData.data["Message"]}`,
       status: "to do", // Adjust the status as per your ClickUp workspace
-      assignees: [3475808],
+      assignees: [5496465],
       priority: 2,
       start_date: currentDate,
       due_date: currentDate,
