@@ -10,7 +10,7 @@ const PORT = 8000;
 app.use(bodyParser.json());
 
 // Webflow webhook endpoint
-app.post("/webflow-form", async (req, res) => {
+app.post("/get-a-quote", async (req, res) => {
   try {
     // Webflow form data
     const formData = req.body;
