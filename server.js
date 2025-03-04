@@ -18,11 +18,11 @@ app.post("/get-a-quote", async (req, res) => {
 
     // Map Webflow form fields to ClickUp task fields
     const taskData = {
-      name: `Form Submission: ${formData["name"]}`, // Use the form's "Name" field
-      description: `**Email**: ${formData["email"]}
-      **Phone**: ${formData["phone"]}
-      **Company/Business Name**: ${formData["company"]}
-      **Add your project goals and requirements here**: ${formData["message"]}`,
+      name: `Form Submission: ${formData.data["name"]}`, // Use the form's "Name" field
+      description: `**Email**: ${formData.data["email"]}
+      **Phone**: ${formData.data["phone"]}
+      **Company/Business Name**: ${formData.data["company"]}
+      **Add your project goals and requirements here**: ${formData.data["message"]}`,
       status: "open",
       // Adjust the status as per your ClickUp workspace
       assignees: null,
