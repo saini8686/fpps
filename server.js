@@ -7,14 +7,11 @@ const PORT = 3000;
 
 app.use(express.json());
 
-const UPLOADCARE_SECRET_KEY = "b4c69683e25db846bc47";
-const UPLOADCARE_PUB_KEY = "69b27fb42b6f0908baea";
-
 app.post("/uploadcare-signature", (req, res) => {
   const timestamp = Math.floor(Date.now() / 1000) + 60 * 30; // 30 min validity
   const signatureString = `UPLOADCARE_PUB_KEY=69b27fb42b6f0908baea&expire=${timestamp}`;
   const signature = crypto
-    .createHmac("sha256", UPLOADCARE_SECRET_KEY)
+    .createHmac("sha256", 'b4c69683e25db846bc47')
     .update(signatureString)
     .digest("hex");
   res.json({
