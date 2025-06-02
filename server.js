@@ -23,7 +23,6 @@ app.post("/uploadcare-signature", (req, res) => {
     expire: timestamp,
   });
 });
-app.listen(3000, () => console.log("Signature endpoint running"));
 
 // Start the server
 app.listen(PORT, () => {
