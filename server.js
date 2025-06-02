@@ -12,7 +12,7 @@ const UPLOADCARE_PUB_KEY = "69b27fb42b6f0908baea";
 
 app.post("/uploadcare-signature", (req, res) => {
   const timestamp = Math.floor(Date.now() / 1000) + 60 * 30; // 30 min validity
-  const signatureString = `UPLOADCARE_PUB_KEY=${UPLOADCARE_PUB_KEY}&expire=${timestamp}`;
+  const signatureString = `UPLOADCARE_PUB_KEY=69b27fb42b6f0908baea&expire=${timestamp}`;
   const signature = crypto
     .createHmac("sha256", UPLOADCARE_SECRET_KEY)
     .update(signatureString)
